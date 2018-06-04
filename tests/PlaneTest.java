@@ -1,26 +1,30 @@
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PlaneTest {
+    private Plane plane;
+    @BeforeEach
+    public void setup(){
+        plane = new Plane();
+    }
     @Test
     public void planeisflying(){
-        Plane plane = new Plane();
-        Assert.assertEquals(true, plane.flying);
+        assertEquals(true, plane.flying);
     }
+
 
     @Test
     public void planelands(){
-        Plane plane = new Plane();
         plane.land();
-        Assert.assertEquals(false, plane.flying);
+        assertEquals(false, plane.flying);
     }
 
     @Test
     public void planetakesoff(){
-        Plane plane = new Plane();
         plane.land();
         plane.takeOff();
-        Assert.assertEquals(true, plane.flying);
+        assertEquals(true, plane.flying);
     }
 
 }
